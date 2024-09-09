@@ -477,11 +477,11 @@
 			]
 		},
 		"contracts/antugrowtoken.sol": {
-			"keccak256": "0x92360989bb96c0de0595a585134e1a491f42bbe860fdd2c7a1908ec0c7e28f74",
+			"keccak256": "0xc3cf2c5874d5d98d89b3f1e59ed84917a9fb5ee6fea9b316d2ec5362b646ad24",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b114e6de034b3dcf9a8aa25b10c22e6b0e9bfb3879592d216f1a1a7b72cd60dd",
-				"dweb:/ipfs/QmdzCUwXo6r9jCZhV43xfswK5vP8tgCRtHXdxt3drMmn2n"
+				"bzz-raw://e8a3f85f6e1e5e47099464cc531f2e9ed3e003f781d56a5967c43e103565f014",
+				"dweb:/ipfs/QmX82TXjtAUbFxn923n8E7zuu6qVqcUcHP9ZD2nZhpdr6w"
 			]
 		}
 	},
