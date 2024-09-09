@@ -1,4 +1,4 @@
-# Verifiable Credentials for Farmers
+# Antugrow - Reputation Based DeFi Lending Protocol for Farmers
 
 ## Overview
 This project aims to provide a system for farmers to obtain verifiable credentials based on their farm activities. By leveraging blockchain technology, we ensure that the credentials are secure, tamper-proof, and easily accessible.
