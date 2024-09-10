@@ -1,5 +1,5 @@
+import WalletConnection from "@/components/web3/WalletConnection";
 import HomeLayout from "@/layouts/HomeLayout";
-import { Link } from "react-router-dom";
 
 const Home = () => {
 	return (
@@ -15,16 +15,11 @@ const Home = () => {
 					</p>
 				</div>
 				<div className="mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
-					<Link to="/auth/signup" className="px-10 py-3.5 w-full bg-indigo-600 text-white text-center rounded-md shadow-md block sm:w-auto">
-						Get started
-					</Link>
-					<Link to="/auth/signin" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto">
-						Sign In
-					</Link>
+					<WalletConnection />
 				</div>
 			</section>
 		</HomeLayout>
 	);
-}
+};
 
 export default Home;

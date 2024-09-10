@@ -1,6 +1,7 @@
 import React from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import AcmeLogo from "./AcmeLogo";
+import WalletConnection from "../web3/WalletConnection";
 
 export default function HomeNavbar() {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -34,16 +35,11 @@ export default function HomeNavbar() {
 				</NavbarItem>
 			</NavbarContent>
 			<NavbarContent justify="end">
-				<NavbarItem className="hidden lg:flex">
-					<Link href="#">Login</Link>
-				</NavbarItem>
 				<NavbarItem>
-					<Button as={Link} color="primary" href="#" variant="flat">
-						Sign Up
-					</Button>
+					<WalletConnection />
 				</NavbarItem>
 			</NavbarContent>
-			<NavbarMenu className="antugrow font-nunito" >
+			<NavbarMenu className="antugrow font-nunito">
 				{menuItems.map((item, index) => (
 					<NavbarMenuItem key={`${item}-${index}`}>
 						<Link color={index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"} className="w-full" href="#" size="lg">

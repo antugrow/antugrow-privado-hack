@@ -8,7 +8,7 @@ export const wagmiConfig = createConfig({
   connectors: [
     coinbaseWallet({
       appName: "AntugrowConnect",
-      preference: "smartWalletOnly", // set this to `all` to use EOAs as well
+      preference: "eoaOnly", // set this to `all` to use EOAs as well
       version: "4",
     }),
   ],
