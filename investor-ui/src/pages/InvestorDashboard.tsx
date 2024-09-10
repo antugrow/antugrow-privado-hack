@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { LineChart, BarChart, PieChart, Line, Bar, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { AlertCircle, Copy, RefreshCw, LogOut } from "lucide-react";
+import { AlertCircle, RefreshCw, LogOut } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AntugrowEscrowTransaction from "@/components/web3/AntugrowEscrowTransaction";
 
 const overviewData = [
 	{ month: "Jan", value: 200000 },
@@ -84,12 +84,16 @@ const OverviewTab = () => (
 );
 
 const DepositTab = () => {
-	const [selectedCrypto, setSelectedCrypto] = useState("BTC");
-	const [depositAddress, setDepositAddress] = useState("0x1234...5678");
+	const [amount, setAmount] = useState<number>(0);
 
-	const copyAddress = () => {
-		navigator.clipboard.writeText(depositAddress);
-		alert("Deposit address copied to clipboard");
+	const handleChange = (val: string) => {
+		let numVal = parseFloat(val);
+
+		if (isNaN(numVal)) {
+			setAmount(0);
+		} else {
+			setAmount(numVal);
+		}
 	};
 
 	return (
@@ -101,41 +105,18 @@ const DepositTab = () => {
 			</Alert>
 			<Card>
 				<CardHeader>
-					<CardTitle>Deposit Crypto</CardTitle>
+					<CardTitle>Deposit Crypto for Funding Farmers</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<div className="space-y-4">
 						<div>
-							<label className="block mb-2">Select cryptocurrency:</label>
-							<Select value={selectedCrypto} onValueChange={setSelectedCrypto}>
-								<option value="BTC">Bitcoin (BTC)</option>
-								<option value="ETH">Ethereum (ETH)</option>
-								<option value="USDC">USD Coin (USDC)</option>
-							</Select>
-						</div>
-						<div>
-							<label className="block mb-2">Deposit address:</label>
+							<label className="block mb-2">Amount</label>
 							<div className="flex">
-								<Input value={depositAddress} readOnly />
-								<Button onClick={copyAddress} className="ml-2">
-									<Copy className="mr-2 h-4 w-4" /> Copy
-								</Button>
+								<Input value={amount} onChange={(e) => handleChange(e.target.value)} />
 							</div>
+							<AntugrowEscrowTransaction amount={amount} />
 						</div>
-						<p>Minimum deposit: $1,000 equivalent</p>
-						<p>Expected processing time: 30 minutes (6 confirmations)</p>
 					</div>
-				</CardContent>
-			</Card>
-			<Card>
-				<CardHeader>
-					<CardTitle>Recent Transactions</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<ul>
-						<li>Deposit: 0.5 BTC - Confirmed</li>
-						<li>Deposit: 1000 USDC - Pending (3/6 confirmations)</li>
-					</ul>
 				</CardContent>
 			</Card>
 		</div>
