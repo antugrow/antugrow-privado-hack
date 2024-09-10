@@ -1,17 +1,11 @@
-import React from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link } from "@nextui-org/react";
 import AcmeLogo from "./AcmeLogo";
 import WalletConnection from "../web3/WalletConnection";
 
 export default function HomeNavbar() {
-	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-	const menuItems = ["Profile", "Dashboard", "Activity", "Analytics", "System", "Deployments", "My Settings", "Team Settings", "Help & Feedback", "Log Out"];
-
 	return (
-		<Navbar onMenuOpenChange={setIsMenuOpen}>
+		<Navbar>
 			<NavbarContent>
-				<NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden" />
 				<NavbarBrand>
 					<AcmeLogo />
 					<p className="font-bold text-inherit">Antugrow</p>
@@ -24,8 +18,8 @@ export default function HomeNavbar() {
 					</Link>
 				</NavbarItem>
 				<NavbarItem isActive>
-					<Link href="#" aria-current="page">
-						Customers
+					<Link href="/portfolio" aria-current="page">
+						Portfolio
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
@@ -39,15 +33,6 @@ export default function HomeNavbar() {
 					<WalletConnection />
 				</NavbarItem>
 			</NavbarContent>
-			<NavbarMenu className="antugrow font-nunito">
-				{menuItems.map((item, index) => (
-					<NavbarMenuItem key={`${item}-${index}`}>
-						<Link color={index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"} className="w-full" href="#" size="lg">
-							{item}
-						</Link>
-					</NavbarMenuItem>
-				))}
-			</NavbarMenu>
 		</Navbar>
 	);
 }
